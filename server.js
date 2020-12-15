@@ -74,25 +74,9 @@ app.get("/api/waitList", function(req, res) {
   return res.json(waitingList);
 });
 
-// THIS WOULD SHOW AN INDIVIDUAL RESERVATION IF WE SET IT UP THAT WAY!
-// Displays a single character, or returns false
-// app.get("/api/characters/:character", function(req, res) {
-//   var chosen = req.params.character;
-
-//   console.log(chosen);
-//   console.log(req.params)
-
-//   for (var i = 0; i < characters.length; i++) {
-//     if (chosen === characters[i].routeName) {
-//       return res.json(characters[i]);
-//     }
-//   }
-
-//   return res.json(false);
-// });
 
 // Create New Reservation - takes in JSON input
-app.post("/api/reservations", function(req, res) {
+app.post("/api/tables", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
   var newReservation = req.body;

@@ -67,7 +67,7 @@
 								<input type="text" class="form-control" id="reserve_uniqueID">
 							</div>
 
-							<button type="submit" class="btn btn-primary submit">Submit</button>
+							<button type="submit" id="submit-btn" class="btn btn-primary submit">Submit</button>
 						</form>
 
 					</div>
@@ -90,13 +90,21 @@
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
 
-  $("#viewTable").on("click", function() {
-    $.get("/tables", function() {
-      console.log("Success!");
-    })
+  $("#submit-btn").on("click", function( event ) {
+	  event.preventDefault();
+	  const newReservation = {
+		  name: $("#reserve_name").val().trim(),
+		  phoneNumber: $("#reserve_phone").val().trim(),
+		  email: $("#reserve_email").val().trim(),
+		  id: $("#reserve_uniqueID").val().trim(),
+	  };
+
+	  $.post("/api/tables", newReservation)
+	  .then(function(data) {
+		console.log("reserve.html", data);
+		alert("Reservation added...");
+	  });
 
   });
-
-
 </script>
 </html>
