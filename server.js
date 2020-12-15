@@ -14,23 +14,23 @@ app.use(express.json());
 
 // Star Wars Characters (DATA)
 // =============================================================
-const reservations = [
+const tables = [
   {
-    routeName: "tableOne",
+    routeName: "tableone",
     name: "user",
     id: "userId",
     email: "test@test.com",
     phoneNumber: "555-555-5555"
   },
   {
-    routeName: "tableTwo",
+    routeName: "tabletwo",
     name: "user",
     id: "userId",
     email: "test@test.com",
     phoneNumber: "555-555-5555"
   },
   {
-    routeName: "tableThree",
+    routeName: "tablethree",
     name: "user",
     id: "userId",
     email: "test@test.com",
@@ -40,7 +40,7 @@ const reservations = [
 
 const waitingList = [
     {
-        routeName: "tableSix",
+        routeName: "tablesix",
         name: "user",
         id: "userId",
         email: "test@test.com",
@@ -60,9 +60,18 @@ app.get("/reserve", function(req, res) {
   res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
-// Displays all characters
-app.get("/api/reservations", function(req, res) {
-  return res.json(reservations);
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+// Displays tables JSON response
+app.get("/api/tables", function(req, res) {
+  return res.json(tables);
+});
+
+// Displays wait list JSON response
+app.get("/api/waitList", function(req, res) {
+  return res.json(waitingList);
 });
 
 // THIS WOULD SHOW AN INDIVIDUAL RESERVATION IF WE SET IT UP THAT WAY!
@@ -90,13 +99,13 @@ app.post("/api/reservations", function(req, res) {
 
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-//   newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+  // newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 // THIS IS WHERE WE SHOULD PUT THE LOGIC FOR PUSHING RESERVATIONS INTO THE WAITLIST 
 // WHEN THE TABLES ARE FULL
 
   console.log(newReservation);
 
-  reservations.push(newReservation);
+  tables.push(newReservation);
 
   res.json(newReservation);
 });
@@ -104,5 +113,5 @@ app.post("/api/reservations", function(req, res) {
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+  console.log("App listening on PORT: http://localhost:" + PORT);
 });
