@@ -69,9 +69,9 @@ app.get("/api/tables", function(req, res) {
   return res.json(tables);
 });
 
-// Displays tables JSON response
+// Displays wait list JSON response
 app.get("/api/waitList", function(req, res) {
-  return res.json(waitList);
+  return res.json(waitingList);
 });
 
 // THIS WOULD SHOW AN INDIVIDUAL RESERVATION IF WE SET IT UP THAT WAY!
