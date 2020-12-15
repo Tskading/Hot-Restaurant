@@ -85,7 +85,13 @@
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
 
-	
+  $("#viewTable").on("click", function() {
+    $.get("/tables", function() {
+      console.log("Success!");
+    })
+
+  });
+
 
 </script>
 </html>

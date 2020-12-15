@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Star Wars Characters (DATA)
 // =============================================================
-const reservations = [
+const tables = [
   {
     routeName: "tableone",
     name: "user",
@@ -64,9 +64,14 @@ app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
 });
 
-// Displays all characters
-app.get("/api/reservations", function(req, res) {
-  return res.json(reservations);
+// Displays tables JSON response
+app.get("/api/tables", function(req, res) {
+  return res.json(tables);
+});
+
+// Displays tables JSON response
+app.get("/api/waitList", function(req, res) {
+  return res.json(waitList);
 });
 
 // THIS WOULD SHOW AN INDIVIDUAL RESERVATION IF WE SET IT UP THAT WAY!
@@ -100,7 +105,7 @@ app.post("/api/reservations", function(req, res) {
 
   console.log(newReservation);
 
-  reservations.push(newReservation);
+  tables.push(newReservation);
 
   res.json(newReservation);
 });
