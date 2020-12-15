@@ -16,21 +16,21 @@ app.use(express.json());
 // =============================================================
 const reservations = [
   {
-    routeName: "tableOne",
+    routeName: "tableone",
     name: "user",
     id: "userId",
     email: "test@test.com",
     phoneNumber: "555-555-5555"
   },
   {
-    routeName: "tableTwo",
+    routeName: "tabletwo",
     name: "user",
     id: "userId",
     email: "test@test.com",
     phoneNumber: "555-555-5555"
   },
   {
-    routeName: "tableThree",
+    routeName: "tablethree",
     name: "user",
     id: "userId",
     email: "test@test.com",
@@ -40,7 +40,7 @@ const reservations = [
 
 const waitingList = [
     {
-        routeName: "tableSix",
+        routeName: "tablesix",
         name: "user",
         id: "userId",
         email: "test@test.com",
@@ -90,7 +90,7 @@ app.post("/api/reservations", function(req, res) {
 
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-//   newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+  // newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
 // THIS IS WHERE WE SHOULD PUT THE LOGIC FOR PUSHING RESERVATIONS INTO THE WAITLIST 
 // WHEN THE TABLES ARE FULL
 
@@ -104,5 +104,5 @@ app.post("/api/reservations", function(req, res) {
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+  console.log("App listening on PORT: http://localhost: " + PORT);
 });
