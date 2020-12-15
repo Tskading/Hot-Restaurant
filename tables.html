@@ -74,6 +74,18 @@
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
 <script type="text/javascript">
 
+$.get("/api/tables")
+.then( function( data ) {
+console.log(data);
+
+if( data ) {
+	$("#tableSection").show();
+	$("#reserve_name").text(data.reserve_name);
+	$("#reserve_phone").text(data.reserve_phone);
+	$("#reserve_email").text(data.reserve_email);
+	$("#reserve_uniqueID").text(data.reserve_uniqueID);
+}
+});
 	
 
 
